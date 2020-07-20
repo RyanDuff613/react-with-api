@@ -1,9 +1,23 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-
 import { makeApiCall } from '../actions';
+import styled from 'styled-components'
 
+const HeadlineBox = styled.li`
+  border: 1px solid #f1f1f1;
+  margin: 5px;
+`;
+
+// const Headline = styled.p`
+//   background-color:grey;
+// `;
+
+const HeadlineTitle = styled.h3`
+    color: rgba(0,0,0,0.75);
+  `;
+
+
+  
 
 class Headlines extends React.Component {
   constructor(props){
@@ -28,9 +42,12 @@ class Headlines extends React.Component {
           <ul>
             {headlines.map((headline, index) =>
               <li key={index}>
-                <h3>{headline.title}</h3>
-                <p>{headline.abstract}</p>
-                <hr/>
+              <HeadlineBox>
+                <HeadlineTitle>
+                  <h3>{headline.title}</h3>
+                </HeadlineTitle>
+                  <p>{headline.abstract}</p>
+              </HeadlineBox>
               </li>
             )}
           </ul>
